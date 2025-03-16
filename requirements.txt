@@ -6,10 +6,13 @@ Pillow>=7.1.2
 PyYAML>=5.3.1
 requests>=2.23.0
 scipy>=1.4.1
-torch==2.4.1
-torchvision==0.19.1
 
-# For YOLOv5 (assuming it's related to YOLO)
-yolov5
+# Flask & Web Dependencies
+flask
+flask-cors
+werkzeug
 
-# Optional: if you are using a custom `gitignore` or want to ignore certain files in the environment
+# YOLOv5 & Torch
+torch>=2.0.1  # Fix: Version compatibility
+torchvision>=0.15.2
+ultralytics  # Fix: This is required for YOLOv5
