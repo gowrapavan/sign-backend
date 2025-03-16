@@ -48,11 +48,11 @@ def upload_image():
         return jsonify({'error': 'Detection failed'}), 500
 
     processed_image = os.path.basename(processed_images[0])
-    
+
     # **Return full image URL for frontend**
     return jsonify({
         'processed_image': processed_image,
-        'image_url': f"http://localhost:5000/output/{processed_image}"
+        'image_url': f"{request.host_url}output/{processed_image}"  # Updated URL for Render
     })
 
 @app.route('/output/<filename>')
@@ -63,4 +63,5 @@ def get_output_image(filename):
     return jsonify({'error': 'File not found'}), 404
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Get PORT from Render, default to 5000
+    app.run(host='0.0.0.0', port=port, debug=True)
