@@ -9,8 +9,6 @@ scipy>=1.4.1
 torch==2.4.1
 torchvision==0.19.1
 
-toda==4.41.8
-
 # For YOLOv5 (assuming it's related to YOLO)
 yolov5
 
